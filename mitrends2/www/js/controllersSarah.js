@@ -795,7 +795,7 @@ angular.module('starter.controllersSarah', [])
     results.push(result10);
 
     //Service Aufruf
-  //  ExcersiseStorageService.saveResultsToFile("Labyrinth Übung", results);
+    ExcersiseStorageService.saveResultsToFile("Labyrinth Übung", results);
   };
 
   // Popup mit den Variablen für Midata
