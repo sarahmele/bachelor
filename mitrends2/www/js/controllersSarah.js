@@ -27,66 +27,10 @@ angular.module('starter.controllersSarah', [])
 
 })
 
-/* -- NOT NEEDED IN THIS VERSION OF THE APP -- */
-/* -- Controller for Labyrinth Anleitung View -- */
-.controller('LabAnlCtrl', function($scope, $stateParams, $state, $ionicModal) {
 
-  // Go to the page "Labyrinth" after Save
-  $scope.goRoute = function() {
-    $state.go('route');
-  };
-
-  // Images with the according instruction text
-  $scope.images = [{
-    "text": "ROUTE-INSTRUCTION_TEXT_3",
-    "src": "img/lab_anl_1.png",
-    "src_glass": "img/lab_anl_1_lupe.png"
-  }, {
-    "text": "ROUTE-INSTRUCTION_TEXT_4",
-    "src": "img/lab_anl_2.png",
-    "src_glass": "img/lab_anl_2_lupe.png"
-  }, {
-    "text": "ROUTE-INSTRUCTION_TEXT_5",
-    "src": "img/lab_anl_3.png",
-    "src_glass": "img/lab_anl_3_lupe.png"
-  }, {
-    "text": "ROUTE-INSTRUCTION_TEXT_6",
-    "src": "img/lab_anl_4.png",
-    "src_glass": "img/lab_anl_4_lupe.png"
-  }];
-
-  // To show the Modal - a view with the images fullscreen
-  $scope.showImages = function(index) {
-    $scope.activeSlide = index;
-    $scope.showModal('templates/image-popover.html');
-  }
-
-  // Show the Modal - the view with the video
-  $scope.showModal = function(templateUrl) {
-    $ionicModal.fromTemplateUrl(templateUrl, {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.modal = modal;
-      $scope.modal.show();
-    });
-  }
-
-  // Close the modal
-  $scope.closeModal = function() {
-    $scope.modal.hide();
-    $scope.modal.remove()
-  };
-
-  // Play the video in other View
-  $scope.playVideo = function() {
-    $scope.showModal('templates/routeVideo.html');
-  };
-})
-
-//--------------------------------------------------------//
-//---------------CONTROLLER Labyrinth Instructionvideo----//
-//--------------------------------------------------------//
+/*-------------------------------------------------------
+  ---Controller for Labyrinth Instruction Video View ----
+  -------------------------------------------------------*/
 .controller('LabyrinthVideoCtrl', function($scope, $state, $timeout) {
   $scope.hideButton = true;
   $scope.goLab = function() {
@@ -98,7 +42,9 @@ angular.module('starter.controllersSarah', [])
   }, 15000);
 })
 
-/* -- Controller for Labyrinth View -- */
+/*-------------------------------------------------------
+  ----------- Controller for Labyrinth View ----------
+  -------------------------------------------------------*/
 .controller('LabCtrl', function($scope, $stateParams, $interval, $state, $ionicPopup, $translate, ExcersiseStorageService) {
 
   // Array with results for the save service
@@ -183,7 +129,7 @@ angular.module('starter.controllersSarah', [])
   var point21 = [877, 91.5];
   var point22 = [953.5, 669.5]; //end
 
-  // the last point and line the user clicked
+  // the last point, before last point and line the user clicked
   var lastpoint;
   var beforelastpoint;
   var lastline;
@@ -275,6 +221,7 @@ angular.module('starter.controllersSarah', [])
 
   // Make the Way
   doWay = function() {
+
     //You cannot click the lab until the way is shown
     clickOK = false;
 
@@ -576,21 +523,21 @@ angular.module('starter.controllersSarah', [])
                     countcorrection = countcorrection + 1;
                   }
 
-                  // Wenn aktueller Punkt "Start war"
+                  // actual point was start
                   else if (actualLab[i][0] == point1[0] && actualLab[i][1] == point1[1]){
                     drawPoint(actualLab[i][0], actualLab[i][1], "black");
                     userpoints.splice(userpoints.length-1, 1);
                     countcorrection = countcorrection + 1;
                   }
 
-                  // Erster Punkt war nicht Start und wird korrigiert
+                  // first point was not START and is corrected
                   else{
                     drawPoint(actualLab[i][0], actualLab[i][1], "white");
                     userpoints.splice(userpoints.length-1, 1);
                     countcorrection = countcorrection + 1;
                   }
 
-                  // Letzter Punkt zurücksetzen auf Vorletzten
+                  // set last point to beforelastpoint
                   lastpoint = beforelastpoint;
                 }
                 else{
@@ -624,7 +571,7 @@ angular.module('starter.controllersSarah', [])
                     drawPoint(lastpoint[0], lastpoint[1], "cyan");
                     lastpoint = [actualLab[i][0], actualLab[i][1]];
                   }
-                  // Regelbruch
+                  // Rulebreak
                   else{
                     rulebreaks = rulebreaks + 1;
                   }
@@ -651,7 +598,7 @@ angular.module('starter.controllersSarah', [])
         userpoints.push([point22[0], point22[1]]);
         // draw Point
         drawPoint(point22[0], point22[1], "cyan");
-        //search in the whole labyrinth
+        // search in the whole labyrinth
         // check if the user did a right line (doesnt matter which direction)
         // loop through userway array
         for (var i = 0; i < userway.length; i++) {
@@ -683,29 +630,29 @@ angular.module('starter.controllersSarah', [])
         score = rightdirection + ((rightlines - rightdirection)*0.5);
         // do the math the number of the faults
         faults = userway.length - rightlines;
-        // checken ob der ganze weg richtig gemacht wurde
+        // check if the whole way was right
         if (userway.length == rightlines) {
           rightlab = rightlab + 1;
           countrightlab = countrightlab + 1;
         }
-        // muss 2 mal NACHEINANDER richtig gemacht werden
+        // has to be right two times IN A ROW
         else {
           rightlab = 0;
         }
 
         if (rightlab > 1 || countlab > 4) {
-          // 2 mal nacheinander richtig oder 5 mal falsch --> Übung beendet
+          // two times in a row right or 5 times tried
           $scope.saveResultsLab();
           console.log(results);
           $state.go('geschafftLAB');
         } else {
-          // Mache den Weg nochmal
+          // Do the way again
           $scope.saveResultsLab();
           console.log(results);
           doWay();
         }
       }
-      // Klicken noch nicht erlaubt
+      // Not allowed to click already
     } else {
       console.info("nopes");
     }
@@ -725,10 +672,10 @@ angular.module('starter.controllersSarah', [])
   // cx, cy is circle center, and radius is circle radius
   realLineInLab = function(x1, y1, x2, y2) {
     var isinlab = false;
-    // loop durch die linien des labs
+    // loop through the lines of the lab
       for (var n = 0; n < actualLabLines.length; n++) {
         if (
-          // vergleich ob koordinaten vorhanden im labyrinth
+          // compare all the coordinates of the lab
           ((x1 == actualLabLines[n][0] && y1 == actualLabLines[n][1]) || (x1 == actualLabLines[n][2] && y1 == actualLabLines[n][3])) &&
           ((x2 == actualLabLines[n][0] && y2 == actualLabLines[n][1]) || (x2 == actualLabLines[n][2] && y2 == actualLabLines[n][3]))
         ) {
@@ -741,7 +688,7 @@ angular.module('starter.controllersSarah', [])
   // Save the Results
   $scope.saveResultsLab = function() {
 
-    //Paramter die übergeben werden
+    //Save all Auswertungen
     var result1 = {};
     var date = new Date();
 
@@ -794,17 +741,8 @@ angular.module('starter.controllersSarah', [])
     result10.value = (endTime - startTime) / 1000;
     results.push(result10);
 
-    //Service Aufruf
+    //Service Call
     ExcersiseStorageService.saveResultsToFile("Labyrinth Übung", results);
-  };
-
-  // Popup mit den Variablen für Midata
-  $scope.showPopupMIDATA = function() {
-    var alertPopup = $ionicPopup.alert({
-      title: $translate.instant('VARIABLES_MIDATA'),
-      template: "Anzahl Clicks: " + clicks + "</br></br>" + "Anz. Punkt des Labs angeklickt: " + rightclicks + "</br></br>" + "Anz. richtige Verbindungen: " + rightlines,
-    });
-    alertPopup;
   };
 
   // Labyrinth is defined for width="1024" height="768"
