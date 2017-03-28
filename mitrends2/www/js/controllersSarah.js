@@ -569,8 +569,8 @@ angular.module('starter.controllersSarah', [])
                       drawPoint(actualLab[i][0], actualLab[i][1], "cyan");
                     }
 
-                    //make the "actual point" yellow
-                    drawPoint(beforelastpoint[0], beforelastpoint[1], "yellow");
+                    //make the "actual point" mediumblue
+                    drawPoint(beforelastpoint[0], beforelastpoint[1], "mediumblue");
                     userway.splice(userway.length-1, 1);
                     userpoints.splice(userpoints.length-1, 1);
                     countcorrection = countcorrection + 1;
@@ -620,7 +620,7 @@ angular.module('starter.controllersSarah', [])
                     // set the point before the lastpoint
                     beforelastpoint = lastpoint;
                     // draw Point
-                    drawPoint(actualLab[i][0], actualLab[i][1], "yellow");
+                    drawPoint(actualLab[i][0], actualLab[i][1], "mediumblue");
                     drawPoint(lastpoint[0], lastpoint[1], "cyan");
                     lastpoint = [actualLab[i][0], actualLab[i][1]];
                   }
@@ -631,9 +631,9 @@ angular.module('starter.controllersSarah', [])
                 }
               }
             }
-            // else draw just the point yellow (Startpunkt)
+            // else draw just the point mediumblue (Startpunkt)
             else {
-              drawPoint(actualLab[i][0], actualLab[i][1], "yellow");
+              drawPoint(actualLab[i][0], actualLab[i][1], "mediumblue");
               lastpoint = [actualLab[i][0], actualLab[i][1]];
               userpoints.push([actualLab[i][0], actualLab[i][1]]);
               startTime = new Date().getTime();
