@@ -173,13 +173,13 @@ angular.module('starter.controllersRea', [])
       // End excersise after 120 seconds
       $interval(functioninterval, intervalDuration, intervalrepetitions);
 
-      // Fill the keyTable with the first 9 images after the array was sorted in a random way
-      var ranNums = SymDigService.doShuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]);
+      // Assign the same 9 images as in the sd prepartion to the ranNums variable
+      var ranNums = $rootScope.ranNums;
       console.log(ranNums);
-      $scope.keyTable = SymDigService.fillKeyTable(ranNums);
-      //Remove 8 items after the nint one - because for the keytable only the first nine numbers were choosen to be an image
-      ranNums.splice(9, 8);
-      // Add the number at position 2 of the ranNums array again to the ranNums array, because we need to have 10 images in the solveTable
+      // Assign the keyTable of the sd prepartion to be also the keytable of the main excercise
+      $scope.keyTable = $rootScope.keyTable;
+
+      // Add every number of the ranNums array again to the array, because we need to have 18 images in one row in the solveTable - therefore every image is displayed twice in one row
       for (var i = 0; i < 9; i++) {
         ranNums.push(ranNums[i]);
       }
@@ -324,7 +324,7 @@ angular.module('starter.controllersRea', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Zahlsymbol Vorbereitung-----------------------//
   //--------------------------------------------------------//
-  .controller('ZS1Ctrl', function($scope, $stateParams, $ionicPopup, $translate, $state, SymDigService, ExcersiseStorageService) {
+  .controller('ZS1Ctrl', function($scope, $stateParams, $ionicPopup, $translate, $rootScope, $state, SymDigService, ExcersiseStorageService) {
     var popTitle = $translate.instant('INFO');
     var popTemplate = $translate.instant('TEMPLATEPOPUP_NEXTPREPZS');
 
@@ -338,7 +338,8 @@ angular.module('starter.controllersRea', [])
       // Fill the keyTable with the images in a random way and the numbers ordered from 1 to 9
       var ranNums = SymDigService.doShuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]);
       console.log(ranNums);
-      $scope.keyTable = SymDigService.fillKeyTable(ranNums);
+      $rootScope.ranNums = ranNums;
+      $rootScope.keyTable = SymDigService.fillKeyTable(ranNums);
 
       //Remove 8 items after the nint one - because for the keytable only the first nine numbers were choosen to be an image
       ranNums.splice(9, 8);
