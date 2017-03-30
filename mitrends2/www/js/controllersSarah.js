@@ -449,7 +449,7 @@ angular.module('starter.controllersSarah', [])
     ctx.font = 'bold 18pt Arial';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillStyle = "mediumblue";
+    ctx.fillStyle = "blue";
     ctx.fillText($translate.instant('DO_WAY'), ctx.canvas.width / 2, 15);
   };
 
@@ -516,8 +516,8 @@ angular.module('starter.controllersSarah', [])
                       drawPoint(actualLab[i][0], actualLab[i][1], "cyan");
                     }
 
-                    //make the "actual point" mediumblue
-                    drawPoint(beforelastpoint[0], beforelastpoint[1], "mediumblue");
+                    //make the "actual point" blue
+                    drawPoint(beforelastpoint[0], beforelastpoint[1], "blue");
                     userway.splice(userway.length-1, 1);
                     userpoints.splice(userpoints.length-1, 1);
                     countcorrection = countcorrection + 1;
@@ -567,7 +567,7 @@ angular.module('starter.controllersSarah', [])
                     // set the point before the lastpoint
                     beforelastpoint = lastpoint;
                     // draw Point
-                    drawPoint(actualLab[i][0], actualLab[i][1], "mediumblue");
+                    drawPoint(actualLab[i][0], actualLab[i][1], "blue");
                     drawPoint(lastpoint[0], lastpoint[1], "cyan");
                     lastpoint = [actualLab[i][0], actualLab[i][1]];
                   }
@@ -578,9 +578,9 @@ angular.module('starter.controllersSarah', [])
                 }
               }
             }
-            // else draw just the point mediumblue (Startpunkt)
+            // else draw just the point blue (Startpunkt)
             else {
-              drawPoint(actualLab[i][0], actualLab[i][1], "mediumblue");
+              drawPoint(actualLab[i][0], actualLab[i][1], "blue");
               lastpoint = [actualLab[i][0], actualLab[i][1]];
               userpoints.push([actualLab[i][0], actualLab[i][1]]);
               startTime = new Date().getTime();
