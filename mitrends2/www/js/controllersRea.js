@@ -289,14 +289,14 @@ angular.module('starter.controllersRea', [])
         $state.go('geschafftSD');
 
         // Variables to store in the result file
-        var date = new Date();
+        //var date = new Date();
         correct = SymDigService.getCorrect();
         incorrect = SymDigService.getIncorrect();
         clickFrequency = SymDigService.getClickFrequency();
-        var result1 = {};
+        /*var result1 = {};
         result1.name = "Datum, Uhrzeit nach beenden der Übung";
         result1.value = date.toString();
-        results.push(result1);
+        results.push(result1);*/
         var result2 = {};
         result2.name = "Anzahl korrekte Zuordnungen(insgesamt)";
         result2.value = correct;
@@ -411,10 +411,10 @@ angular.module('starter.controllersRea', [])
               correct = SymDigService.getCorrectPrep();
               incorrect = SymDigService.getIncorrectPrep();
               clickFrequency = Math.round((60 / durationExcersisePrep) * (correct + incorrect));
-              var result1 = {};
+              /*var result1 = {};
               result1.name = "Datum, Uhrzeit nach beenden der Übung";
               result1.value = new Date().toString();
-              results.push(result1);
+              results.push(result1);*/
               var result2 = {};
               result2.name = "Anzahl korrekte Zuordnungen(insgesamt)";
               result2.value = correct;
