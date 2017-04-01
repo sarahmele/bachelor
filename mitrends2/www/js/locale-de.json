@@ -8,7 +8,7 @@
   "GO": "Los!",
   "HOME": "Home",
   "DATAPROTECTION": "Datenschutzerklärung",
-  "DATATEXT": "Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Wir halten diese Bestimmungen ein. Persönliche Daten werden streng vertraulich behandelt, ohne die Möglichkeit für Rückschlüsse auf Ihre Person für Studienzwecke verwendet und weder an Dritte verkauft noch weiter gegeben.",
+  "DATATEXT": "<center>Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Wir halten diese Bestimmungen ein.<br><br>Persönliche Daten werden streng vertraulich behandelt und ausschliesslich vom MitrendS Team der Berner Fachhochschule und von der Neurologischen Klinik des Universitätsspitals Zürich im Rahmen der Bachelorthesis im Frühjahrssemester 2017 verwendet.<br><br>Beim Benutzen unserer App werden folgende Daten in Logfiles gespeichert: Antworten aus den Fragebögen, Auswertungsdaten aus den Übungen (erreichte Punkte). Diese Daten bilden die Basis für statistische, anonyme Auswertungen zur Evaluation und Validierung der MitrendS App.",
   "LOGIN": "Login",
   "LOGINERRORTEXT": "User oder Passwort falsch",
   "LOGININFO": "Info",
