@@ -538,7 +538,7 @@ angular.module('starter.controllersSarah', [])
                     lastpoint = beforelastpoint;
                   } else {
                     // You can not correct more than one point
-                    console.log("Korrektur so nicht erlaubt");
+                    console.log("correction not allowed");
                   }
                 } else {
                   // check if the line is already drawn, then it's forbidden to draw
@@ -586,7 +586,9 @@ angular.module('starter.controllersSarah', [])
           countlab = countlab + 1;
           clicks = clicks + 1;
           rightclicks = rightclicks + 1;
-          endTime = new Date().getTime();
+          if (startTime != 0){
+            endTime = new Date().getTime();
+          }
           drawLine(lastpoint[0], lastpoint[1], point22[0], point22[1], "cyan");
           // put the clicked line in the array of the way the user did
           userway.push([lastpoint[0], lastpoint[1], point22[0], point22[1]]);
@@ -620,8 +622,6 @@ angular.module('starter.controllersSarah', [])
           }
 
           // do the math for the score
-          console.log("rightdirection: " + rightdirection);
-          console.log("rightlines: " + rightlines);
           score = rightdirection + ((rightlines - rightdirection) * 0.5);
           // do the math the number of the faults
           faults = userway.length - rightlines;
@@ -649,7 +649,7 @@ angular.module('starter.controllersSarah', [])
         }
         // Not allowed to click already
       } else {
-        console.info("nopes");
+        console.info("not allowed to click already");
       }
     };
 
@@ -686,11 +686,11 @@ angular.module('starter.controllersSarah', [])
       //Save all Auswertungen
       var result1 = {};
       var date = new Date();
-      /*
-    result1.name = "Datum, Uhrzeit nach beenden eines Durchgangs Labyrinth Übung";
-    result1.value = date.toString();
-    results.push(result1);
-*/
+
+    /*result1.name = "Datum, Uhrzeit nach beenden eines Durchgangs Labyrinth Übung";
+      result1.value = date.toString();
+      results.push(result1);*/
+
       var result2 = {};
       result2.name = "Anz. Klicks des Benutzers";
       result2.value = clicks;
