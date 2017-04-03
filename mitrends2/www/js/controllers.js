@@ -119,20 +119,12 @@ angular.module('starter.controllers', [])
   .controller('ImpCtrl', function($scope, $stateParams, $state, $ionicPopup, jsonService) {
     var jsonData = jsonService.getJson();
 
-    $scope.sendEmail = function() {
-      if (window.plugins && window.plugins.emailComposer) {
-        window.plugins.emailComposer.showEmailComposerWithCallback(function(result) {
-            console.log("Response -> " + result);
-          },
-          jsonData.EMAIL_SUBJECT, // Subject
-          "", // Body
-          ["mitrends@outlook.com"], // To
-          null, // CC
-          null, // BCC
-          false, // isHTML
-          null, // Attachments
-          null); // Attachment Data
-      }
+    $scope.goHome = function() {
+      $state.go('home');
+    };
+    $scope.closeApp = function() {
+      ionic.Platform.exitApp();
+      window.close();
     }
   })
 
