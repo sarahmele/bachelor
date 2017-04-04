@@ -91,11 +91,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
         templateUrl: 'templates/home.html',
         controller: 'HomeCtrl'
       })
-      .state('login', {
-        url: '/login',
-        templateUrl: 'templates/login.html',
-        controller: 'LoginCtrl'
-      })
 
       .state('impressum', {
         url: '/impressum',
@@ -152,18 +147,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
         url: '/fatigue',
         templateUrl: 'templates/fatigue.html',
         controller: 'FatigueCtrl'
-      })
-
-      .state('labyrinthAnl', {
-        url: '/labyrinthAnl',
-        templateUrl: 'templates/labyrinthAnl.html',
-        controller: 'RouteAnlCtrl'
-      })
-
-      .state('zahlsymbol_anl', {
-        url: '/zahlsymbol_anl',
-        templateUrl: 'templates/zahlsymbol_anl.html',
-        controller: 'ZahlsymbolAnlCtrl'
       })
 
       .state('geschafftSD', {

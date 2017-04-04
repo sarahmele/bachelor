@@ -303,7 +303,7 @@ angular.module('starter.services', [])
         newObject.imgSrc = "img/SD_" + ranNums[i - 1].toString() + ".png";
         keyTable.push(newObject);
       }
-      console.log(keyTable);
+      console.log("Schlüsseltabelle:" + keyTable);
       return keyTable;
     }
 
@@ -324,7 +324,7 @@ angular.module('starter.services', [])
         }
         solveTableArray.push(newObject);
       }
-      console.log(solveTableArray);
+      console.log("Lösungstabelle:" + solveTableArray);
       return solveTableArray;
     }
 
