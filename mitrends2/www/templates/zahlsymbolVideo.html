@@ -2,15 +2,15 @@
   <ion-content class="padding">
     <div class="row row-85">
       <div class="col">
-        <div class="fullscreen-player" ng-click="closeModal()" style="width:100%">
-          <iframe ng-src="https://www.youtube.com/embed/bOymthBcuyE?rel=0&amp;showinfo=0;autoplay=1;controls=1" width="100%" height="80%"></iframe>
+        <div class="fullscreen-player" ng-click="closeModal()">
+          <video src="video/symboldigit.mp4" controls="controls" width="100%" height="80%" autoplay="autoplay"></video>
         </div>
       </div>
     </div>
     <div class="row row-15">
       <div class="col col-10 padding"></div>
       <div class="col padding">
-        <button class="button button-large button-block button-positive" ng-hide="hideButton" ng-click="goSD()" translate="NEXT"/>
+        <button class="button button-large button-block button-positive" ng-hide="hideButton" ng-click="goSD()" translate="NEXT" />
       </div>
       <div class="col col-10"></div>
     </div>
