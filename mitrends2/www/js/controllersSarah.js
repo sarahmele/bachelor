@@ -626,7 +626,7 @@ angular.module('starter.controllersSarah', [])
           // do the math the number of the faults
           faults = userway.length - rightlines;
           // check if the whole way was right
-          if (userway.length == rightlines) {
+          if (userway.length == rightdirection) {
             rightlab = rightlab + 1;
             countrightlab = countrightlab + 1;
           }
