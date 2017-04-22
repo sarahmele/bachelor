@@ -172,7 +172,7 @@ angular.module('starter.services', [])
           })
 
         }*/
-        $rootScope.filename = "MitrendS.txt"
+        $rootScope.filename = "MitrendS.txt";
         $ionicPlatform.ready(function() {
           $cordovaFile.checkFile(cordova.file.externalDataDirectory, $rootScope.filename)
             .then(function(success) {
