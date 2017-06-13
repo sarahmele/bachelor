@@ -22,7 +22,7 @@ angular.module('starter.controllersSarah', [])
     $scope.goSDVideo = function() {
       /*first variable has to be the name of the view we want to navigate to
       scond is the name of the questionnaire under which we save the answers with localStorage*/
-      QuestionnaireService.checkAndStore('zahlsymbolVideo', 'Kernsymptome');
+      QuestionnaireService.checkAndStore('symbolDigitVideo', 'Kernsymptome');
     };
 
   })
@@ -586,7 +586,7 @@ angular.module('starter.controllersSarah', [])
           countlab = countlab + 1;
           clicks = clicks + 1;
           rightclicks = rightclicks + 1;
-          if (startTime != 0){
+          if (startTime != 0) {
             endTime = new Date().getTime();
           }
           drawLine(lastpoint[0], lastpoint[1], point22[0], point22[1], "cyan");
@@ -687,9 +687,9 @@ angular.module('starter.controllersSarah', [])
       var result1 = {};
       var date = new Date();
 
-    /*result1.name = "Datum, Uhrzeit nach beenden eines Durchgangs Labyrinth Übung";
-      result1.value = date.toString();
-      results.push(result1);*/
+      /*result1.name = "Datum, Uhrzeit nach beenden eines Durchgangs Labyrinth Übung";
+        result1.value = date.toString();
+        results.push(result1);*/
 
       var result2 = {};
       result2.name = "Anz. Klicks des Benutzers";

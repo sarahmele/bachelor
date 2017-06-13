@@ -103,16 +103,16 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
         templateUrl: 'templates/labyrinth.html',
         controller: 'LabCtrl'
       })
-
-      .state('zahlsymbol', {
-        url: '/zahlsymbol',
-        templateUrl: 'templates/zahlsymbol.html',
-        controller: 'ZSCtrl'
+      .state('symbolDigit', {
+        url: '/symbolDigit',
+        templateUrl: 'templates/symbolDigit.html',
+        controller: 'SymbolDigitCtrl'
       })
-      .state('zahlsymbol1', {
-        url: '/zahlsymbol1',
-        templateUrl: 'templates/zahlsymbol1.html',
-        controller: 'ZS1Ctrl'
+
+      .state('symbolDigitPrep', {
+        url: '/symbolDigitPrep',
+        templateUrl: 'templates/symbolDigitPrep.html',
+        controller: 'SymbolDigitPrepCtrl'
       })
 
       .state('kernsymptome', {
@@ -160,10 +160,10 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
         controller: 'GeschafftLABCtrl'
       })
 
-      .state('zahlsymbolVideo', {
-        url: '/zahlsymbolVideo',
-        templateUrl: 'templates/zahlsymbolVideo.html',
-        controller: 'ZSVideoCtrl'
+      .state('symbolDigitVideo', {
+        url: '/symbolDigitVideo',
+        templateUrl: 'templates/symbolDigitVideo.html',
+        controller: 'SymbolDigitVideoCtrl'
       })
 
       .state('labyrinthVideo', {

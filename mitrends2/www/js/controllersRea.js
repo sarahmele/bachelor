@@ -129,10 +129,10 @@ angular.module('starter.controllersRea', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Zahlsymbol Instructionvideo-----------------------//
   //--------------------------------------------------------//
-  .controller('ZSVideoCtrl', function($scope, $state, $timeout) {
+  .controller('SymbolDigitVideoCtrl', function($scope, $state, $timeout) {
     $scope.hideButton = true;
     $scope.goSD = function() {
-      $state.go('zahlsymbol1');
+      $state.go('symbolDigitPrep');
     };
     // to display the next button after 60 seconds
     $timeout(function() {
@@ -143,7 +143,7 @@ angular.module('starter.controllersRea', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Zahlsymbol-----------------------//
   //--------------------------------------------------------//
-  .controller('ZSCtrl', function($scope, $stateParams, $state, $timeout, $interval, $ionicPopup, SymDigService, $translate, ExcersiseStorageService, $rootScope) {
+  .controller('SymbolDigitCtrl', function($scope, $stateParams, $state, $timeout, $interval, $ionicPopup, SymDigService, $translate, ExcersiseStorageService, $rootScope) {
 
     //************************************** initialize the variables for the excersise*************************************
     //number of correct assignments
@@ -346,7 +346,7 @@ angular.module('starter.controllersRea', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Zahlsymbol Vorbereitung-----------------------//
   //--------------------------------------------------------//
-  .controller('ZS1Ctrl', function($scope, $stateParams, $ionicPopup, $translate, $rootScope, $state, SymDigService, ExcersiseStorageService) {
+  .controller('SymbolDigitPrepCtrl', function($scope, $stateParams, $ionicPopup, $translate, $rootScope, $state, SymDigService, ExcersiseStorageService) {
     var popTitle = $translate.instant('INFO');
     var popTemplate = $translate.instant('TEMPLATEPOPUP_NEXTPREPZS');
 
@@ -438,7 +438,7 @@ angular.module('starter.controllersRea', [])
               // Reset the number of Tries
               // SymDigService.setTry(0);
 
-              $state.go('zahlsymbol');
+              $state.go('symbolDigit');
               //***********************************************************************
               // Get the variables to store in the result file
               //***********************************************************************

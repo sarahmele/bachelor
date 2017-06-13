@@ -1,6 +1,6 @@
 <ion-view view-title="{{'FATIGUE_SS' | translate}}" cache-view="false">
   <ion-content class="padding">
-    <form name="MSIS">
+    <form name="FSS">
       <div class="row">
         <div class="col col-60"></div>
         <div class="col" translate="AGRRE_NOT"></div>
@@ -9,19 +9,20 @@
         <div class="col col-60"></div>
         <div class="col" translate="AGREE_COMPLETELY"></div>
       </div>
-
+      <!-- ng-repeat füllt die Kolonnen mit dem Label Text für die Radiobuttons, siehe translate="{{buttons.label}}" -->
       <div class="row row-3">
         <div class="col col-60" translate="FSS_Q"></div>
         <div class="col" id="radiolabels" ng-repeat="buttons in data.FSS.RADIOS">{{buttons.label}}</div>
       </div>
-
+      <!-- *ng-repeat* erstellt wiederholt html zeilen, die vordere Kolonne wird mit den Fragetexten siehe translate="{{question.text}}" abgefüllt und die hintere Kolonne mit den Radiobuttons
+      *ng-change* wird ein radiobutton ausgewählt wird die funktion setValue() aufgrufen und übergibt die id des radiobuttons und die id der Frage -->
       <div class="padding"></div>
       <div class="row row-8 row-top-border" ng-repeat="question in data.FSS.QUESTIONS  track by question.id">
         <div class="col col-5 col-align-center" translate="{{question.id}}">
         </div>
         <div class="col col-55 col-align-center" translate="{{question.text}}">
         </div>
-
+        <!-- ng-repeat füllt hier soviele Radiobuttons in Kolonnen wie es Radiobutton ids hat, siehe ng-value="{{buttons.id}}"-->
         <div class="col col-text-align-center" ng-repeat="buttons in data.FSS.RADIOS">
           <input type="radio" id="fss" class="col-text-align-center" ng-model="FSS" ng-value="{{buttons.id}}" name="{{$parent.question.id}}" ng-change="setValue({{buttons.id}}, {{$parent.question.id}})"/>
           <label for="fss"></label>
