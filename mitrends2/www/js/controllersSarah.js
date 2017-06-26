@@ -635,7 +635,7 @@ angular.module('starter.controllersSarah', [])
             rightlab = 0;
           }
 
-          if (rightlab > 1 || countlab > 4) {
+          if (rightlab > 1 || countlab > 0) {
             // two times in a row right or 5 times tried
             $scope.saveResultsLab();
             console.log(results);
